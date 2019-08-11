@@ -9,7 +9,7 @@ services:
     networks:
     - nano-network
   monitor:
-    image: gr0vity/nanonodemonitor:latest
+    image: nanotools/nanonodemonitor:latest 
     restart: unless-stopped
     ports:
      - 8080:80
@@ -18,12 +18,12 @@ services:
     networks:
      - nano-network
   node:
-    image: nanocurrency/nano:V18.0
+    image: nanocurrency/nano:V19.0
     restart: unless-stopped
     ports:
      - 7075:7075/udp
      - 7075:7075
-     - 7076:7076
+     - ::1:7076:7076
     volumes:
      - ~:/root
     networks:
